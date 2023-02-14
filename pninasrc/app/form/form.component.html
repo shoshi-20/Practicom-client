@@ -1,0 +1,76 @@
+<!-- <div id="imgBackround"> -->
+    <div id="f">
+        <form #form="ngForm" id="divCccc">
+            <h1>פרטים אישיים:</h1>
+            <div class="form-group">
+                <label for="exampleInputEmail1">שם פרטי:</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" [(ngModel)]="client.FName" name="fName"
+                    required pattern="[\u0590-\u05FF\uFB1D-\uFB4F]+">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">שם משפחה:</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" [(ngModel)]="client.LName" name="lName"
+                    required pattern="[\u0590-\u05FF\uFB1D-\uFB4F]+">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">מספר זהות:</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" [(ngModel)]="client.IdentityN"
+                    name="identityN" required minlength="9" maxlength="9" #i="ngModel">
+            </div>
+            <!-- <p *ngIf="i.touched&&i.errors?.['required']">זהו שדה חובה</p>
+            <p *ngIf="i.touched&&i.errors?.['pattern']">99ה</p> -->
+            <div class="form-group">
+                <label for="exampleInputEmail1">תאריך לידה:</label>
+                <input type="date" class="form-control" id="exampleInputEmail1" [(ngModel)]="client.BornDate"
+                    name="bornDate" required min="1904-01-01" max="2023-02-08">
+            </div>
+            <label>מין:</label>
+            <div class="form-check">
+                <label class="form-check-label" for="exampleRadios1">
+                    זכר
+                </label>
+                <input class="form-check-input" type="radio" name="gender" id="exampleRadios1" value="זכר"
+                    [(ngModel)]="client.MorF">
+            </div>
+            <div class="form-check">
+                <label class="form-check-label" for="exampleRadios2">
+                    נקבה
+                </label>
+                <input class="form-check-input" type="radio" name="gender" id="exampleRadios2" value="נקבה"
+                    [(ngModel)]="client.MorF">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">קופת חולים:</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="hmo" [(ngModel)]="client.HMO"
+                    required>
+                    <option value="מאוחדת">"מאוחדת"</option>
+                    <option value="כללית">"כללית"</option>
+                    <option value="מכבי">"מכבי"</option>
+                    <option value="לאומית">"לאומית"</option>
+                </select>
+            </div>
+            <button *ngIf="!isChild" (click)="openChild()" class="btn btn-primary">הוסף ילד</button>
+            <div *ngIf="isChild">
+                <h1>ילד:</h1>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">שם:</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" [(ngModel)]="child.FName"
+                        name="cFName" pattern="[\u0590-\u05FF\uFB1D-\uFB4F]+">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">מספר זהות:</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" [(ngModel)]="child.IdentityN"
+                        name="cIdentity" min="9" max="9">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">תאריך לידה:</label>
+                    <input type="date" class="form-control" id="exampleInputEmail1" [(ngModel)]="child.BornDate"
+                        name="cDate" min="1904-01-01" max="2023-02-08">
+                </div>
+                <button (click)="addChild()" class="btn btn-primary">1+</button>
+            </div>
+            <!-- {{myForm.errors?}} -->
+            <input type="button" (click)="save(form)" [disabled]="!form.invalid" class="btn btn-primary" value="שלח" />
+        </form>
+    </div>
+<!-- </div> -->

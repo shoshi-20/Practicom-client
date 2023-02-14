@@ -1,0 +1,146 @@
+<!-- <form (ngSubmit)="add(myForm)" #myForm="ngForm">
+    <label>שם פרטי </label>
+    <input  type="text" name="fname" required [(ngModel)]="person.FirstName" ><br>
+    <label>שם משפחה </label>
+    <input type="text" name="lname" required [(ngModel)]="person.LastName"><br>
+    <label>מין </label>
+    <select name="gender" [(ngModel)]="person.Gender"><br>
+        <option *ngFor="let enum of Gender|enumToArray" [value]="enum">{{enum}}</option>
+    </select><br>
+    <label>תאריך לידה </label>
+    <input type="date" name="dob" min="0" required [(ngModel)]="person.DOB"><br>
+    <label>תעודת זהות</label>
+    <input type="text" name="level" maxlength="9"  required [(ngModel)]="person.Id"><br>   
+    <label>קופת חולים </label>
+    <select name="hmo" [(ngModel)]="person.HMO"><br>
+        <option *ngFor="let enum of HMO|enumToArray" [value]="enum">{{enum}}</option>
+    </select><br>
+    < <input type="text" name="preparation" #prepeee required [(ngModel)]="prep">
+    <input type="button" value="הוסף ילד" (click)="addChild(prepeee.value)"><br>
+        <div *ngFor="let y of recipe.Preparation; index as i">
+            <input type="text" value="{{y}}" #pre (change)="editInstruction(i,pre.value)" />
+            <input type="button" value="-" (click)="removePreparation(i)" />
+        </div>
+    <label>תיאור</label>
+    <input type="text" name="description" #desc required [(ngModel)]="de"><br>
+    <label>רכיבים</label>
+    <input type="text" name="components" #ing required [(ngModel)]="ingre">
+    <input type="button" value="רכיבים" (click)="addIngredients(ing.value)"><br> -->
+<!-- <label>שכבות</label>
+    <div>
+    <label>תיאור</label>
+    <input type="text" name="description" #desc required [(ngModel)]="de">
+    <label>רכיבים</label>
+    <input type="text" name="components" #ing required [(ngModel)]="ingre">
+     </div> -->
+<!-- <input type="button" value="שכבה" #layer (click)="addLayer(desc.value,ing.value)"> -->
+<!-- <input type="submit" value="שליחה">
+    </form> -->
+<!-- </ [(ngModel)]="myName"  <input
+
+
+    export class AppComponent  {
+       isRight:boolean=false;
+       myName='' ";
+    } -->
+    
+<form *ngIf="allForm" [formGroup]="allForm" (submit)="submit(allForm)">
+    <div class="form-group">
+        <label>תעודת זהות </label>
+        <input formControlName="id" type="text" value="personService.currentPerson$.value.Id" class="form-control" /><br />
+        <span class="text-danger"
+            *ngIf="allForm.get('id').value==''&&(allForm.get('id').dirty || allForm.get('id').touched)">
+            זהו שדה חובה! </span>
+        <span class="text-danger"
+            *ngIf="allForm.get('id').value!=''&&allForm.get('id').invalid&& (allForm.get('id').dirty || allForm.get('id').touched)">
+            !!תעודת זהות לא תקינה </span>
+    </div>
+    <div class="form-group">
+        <label>שם פרטי</label>
+        <input formControlName="firstName" type="text" class="form-control"/><br />
+        <span class="text-danger"
+            *ngIf="allForm.get('firstName').value==''&&(allForm.get('firstName').dirty || allForm.get('firstName').touched)">
+            זהו שדה חובה! </span>
+        <span class="text-danger"
+            *ngIf="allForm.get('firstName').value!=''&&allForm.get('firstName').invalid&& (allForm.get('firstName').dirty || allForm.get('firstName').touched)">
+            !שם אינו יכול להכיל מספרים </span>
+    </div>
+    <div class="form-group">
+        <label>שם משפחה</label>
+        <input formControlName="lastName" type="text" class="form-control"/><br />
+        <span class="text-danger"
+            *ngIf="allForm.get('lastName').value==''&&(allForm.get('lastName').dirty || allForm.get('lastName').touched)">
+            זהו שדה חובה! </span>
+        <span class="text-danger"
+            *ngIf="allForm.get('lastName').value!=''&&allForm.get('lastName').invalid&& (allForm.get('lastName').dirty || allForm.get('lastName').touched)">
+            !שם אינו יכול להכיל מספרים </span>
+    </div>
+    <div class="form-group">
+        <label>תאריך לידה </label>
+        <input formControlName="dateOfBirth" type="date" class="form-control"/><br />
+        <span class="text-danger"
+            *ngIf="allForm.get('dateOfBirth').value!=''&&allForm.get('dateOfBirth').invalid && (allForm.get('dateOfBirth').dirty || allForm.get('dateOfBirth').touched)">
+            !!תאריך לא תקין </span>
+        <span class="text-danger"
+            *ngIf="allForm.get('dateOfBirth').value==''&&(allForm.get('dateOfBirth').dirty || allForm.get('dateOfBirth').touched)">
+            זהו שדה חובה! </span>
+    </div>
+    <div class="form-group">
+        <label>מין</label>
+        <select formControlName="gender" class="form-control" >
+            <!-- <option *ngFor="let enum of Gender|enumToArray" [value]="enum">{{enum}}</option> -->
+            <option >זכר</option>
+            <option >נקבה</option>
+        </select>
+        <span class="text-danger"
+            *ngIf="allForm.get('gender').value==''&&(allForm.get('gender').dirty || allForm.get('gender').touched)">
+            זהו שדה חובה! </span><br />
+    </div>
+    <div class="form-group">
+        <label>קופת חולים</label>
+        <select formControlName="hmo" class="form-control">
+            <option *ngFor="let enum of HMO|enumToArray" [value]="enum">{{enum}}</option>
+        </select>
+        <span class="text-danger"
+            *ngIf="allForm.get('hmo').value==''&& (allForm.get('hmo').dirty || allForm.get('hmo').touched)">
+            זהו שדה חובה! </span>
+    </div>
+    <ng-container formArrayName="children" >
+        <div class="child" *ngFor="let x of children.controls; index as i">
+            <ng-container [formGroupName]="i">
+                <div class="form-group">
+                    <label>תעודת זהות </label>
+                    <input formControlName="childId" type="text"  class="form-control"/><br />
+                    <span class="text-danger"
+                        *ngIf="x.get('childId').value!=''&&x.get('childId').invalid&&(x.get('childId').dirty||x.get('childId').touched)">
+                        !תעודת זהות לא תקינה </span>
+                    <span class="text-danger"
+                        *ngIf="x.get('childId').value==''&&(x.get('childId').dirty ||x.get('childId').touched)">
+                        זהו שדה חובה! </span>
+                </div>
+                <div class="form-group">
+                    <label>שם פרטי</label>
+                    <input formControlName="childName" type="text" class="form-control" /><br />
+                    <span class="text-danger"
+                        *ngIf="x.get('childName').value!=''&&x.get('childName').invalid&&(x.get('childName').dirty||x.get('childName').touched)">
+                        שם שגוי !! </span><br />
+                    <span class="text-danger"
+                        *ngIf="x.get('childName').value==''&&(x.get('childName').dirty || x.get('childName').touched)">
+                        זהו שדה חובה! </span>
+                </div>
+                <div class="form-group">
+                    <label>תאריך לידה </label>
+                    <input formControlName="childDateOfBirth" type="date" class="form-control" /><br />
+                    <span class="text-danger"
+                        *ngIf="x.get('childDateOfBirth').value!=''&&x.get('childDateOfBirth').invalid&&(x.get('childDateOfBirth').dirty||x.get('childDateOfBirth').touched)">
+                        תאריך שגוי !! </span><br />
+                    <span class="text-danger"
+                        *ngIf="x.get('childDateOfBirth').value==''&&(x.get('childDateOfBirth').dirty || x.get('childDateOfBirth').touched)">
+                        זהו שדה חובה! </span>
+                </div>
+            </ng-container>
+        </div>
+    </ng-container>
+    <input class="button" type="button" value="הוסף ילד" (click)="addChild()"><br>
+    <input class="button" [disabled]="allForm.invalid" type="submit" value="לשליחה" />
+</form>

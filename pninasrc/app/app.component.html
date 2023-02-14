@@ -1,0 +1,20 @@
+<!-- <div id="all">
+  <mat-toolbar id="matTool" >
+      <div class="butNav">
+           <img src="../assets/images/icon-rashi.png" id="logo"/>
+           <h1>Foody</h1>
+        </div>
+      <button mat-raised-button color="warn" [routerLink]="['/allRecipes']" class="butNav">כל המתכונים </button>
+      <button mat-raised-button color="warn"[routerLink]="['/register']"  class="butNav">הרשמה</button>
+      <button mat-raised-button color="warn" [routerLink]="['/login']"  class="butNav">התחברות</button>
+      <span class="example-spacer"></span>
+      <span *ngIf="!ifNotGuest()">שלום אורח!</span>
+      <span *ngIf="ifNotGuest()">שלום {{userName}}!</span>
+  </mat-toolbar>
+  <router-outlet id="r"></router-outlet>
+</div> -->
+<div>
+  <button routerLink=form class="btn btn-primary">מילוי טופס</button>
+  <button routerLink=instruction class="btn btn-primary">הנחיות למילוי טופס</button>
+</div>
+<router-outlet></router-outlet>

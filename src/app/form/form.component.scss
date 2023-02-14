@@ -1,0 +1,31 @@
+
+
+.form-control{
+    width: 80%;
+  
+}
+input{
+     width: 80%;
+}
+form{
+    width: 150%;
+   
+   direction: rtl;
+    border: solid 2px blue;
+    border-radius:18px;
+    padding: 10%;
+    background-color: white;
+}
+.child{
+    border: solid 2px rgb(100, 126, 197);
+    border-radius:18px;
+    padding: 10%;
+    background-color: rgb(100, 126, 197);
+    margin: 10px;
+}
+.button{
+
+    align-items: center;
+    justify-content: center;
+   margin: 10px;
+}

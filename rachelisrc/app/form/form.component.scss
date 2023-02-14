@@ -1,0 +1,33 @@
+.form-control{
+    width: 20%;
+  
+}
+.custom-select{
+    width: 20%;
+   
+}
+.h3{
+    color: red;
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.children{
+    flex:1;
+    border: solid 2px black;
+    margin: 2px;
+    padding: 10px;
+}
+.details{
+    flex:1;
+    border: solid 2px black;
+    margin: 2px;
+    padding: 10px;
+
+
+}
+.s{
+    margin-left:35%;
+    width: 30%;
+}
